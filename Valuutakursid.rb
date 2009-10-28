@@ -5,8 +5,9 @@
 # License::   MIT
 
 # = Usage
-# Valuutakursid.new([string date], [string currency_index])
+# Valuutakursid.new(string date)
 #
+# Date must be in Estonian format %d.%m.%y
 # R = Valuutakursid.new('27.10.2009')
 # rates = R.get_data
 # puts rates
@@ -17,7 +18,7 @@ require 'csv'
 
 class Valuutakursid
 
-  # Date must be in Estonian format %d.%m.%y
+  
   def initialize(date)
     @date     = date || Time.now.strftime('%d.%m.%Y')
     @cache    = nil #cache avoid multiple requests
@@ -66,4 +67,3 @@ class Valuutakursid
   end
 
 end 
-
